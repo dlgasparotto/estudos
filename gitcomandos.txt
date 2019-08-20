@@ -1,0 +1,32 @@
+
+Iniciar o GIT em uma pasta
+	git init
+
+Cancelar o GIT de uma pasta
+	Deletar a pasta ".git" oculta na pasta monitorada
+
+Em qualquer momento, para verificar status de commit, arquivos, alterações etc...
+	git status
+
+Adicionando um arquivo
+	git add "arquivo.ext" 
+	OU
+	git add .
+	OU
+	git add --all (envia arquivos apagados)
+
+Commitando localmente inclusoes e exclucoes
+	git commit -m  "comentário qualquer"
+	git commit -m  .
+
+Mandando os commits pro github
+	git push	// se nao tiver logado ainda, vai abrir uma janela de login
+
+Atualizando repositorio do git hub no localmente
+	git pull
+
+Clonar um projeto github na pasta
+	git clone https://github.com/curl/curl.git 
+	git clone https://github.com/curl/curl.git --depth=1  // Para especificar nivel de commits
+
+

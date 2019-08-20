@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<title>Document</title>
+	<style>
+		html, body {margin: 0}
+		html {height: 100%}
+		body {height: 100%}
+		* {box-sizing: border-box}
+		.titulo  {height: 2rem; line-height: 2rem; }	
+		.submenu {height: 2rem; display: flex; }	
+		.submenu button{flex-grow: 1; border: none; background-color: white}
+		.submenu button:active{outline: none; border: none}
+		.submenu button:focus{outline: none; border: none}
+		
+		.conteudo{
+			width: 100%;
+			height: calc(100% - 4rem); 
+			position: relative;
+			overflow-x: scroll; 
+  			white-space: nowrap;
+			}
+		.sessao{
+			display: inline-block;
+			height: 100%; 
+			width: 100%
+			}
+
+		.afude {scroll-snap-type: x mandatory}
+		.afudeitem{	scroll-snap-align: start; scroll-snap-stop: always;}
+
+		.conteudo::-webkit-scrollbar-track{
+			background-color: white;
+		}
+
+		.conteudo::-webkit-scrollbar{
+			width: 10px;
+		}
+
+		.conteudo::-webkit-scrollbar-thumb{
+			background-color: red;
+		}
+				
+	</style>
+
+	<script>
+
+		function log(t){
+
+			console.log(t)
+
+		}
+
+	function proximo(e){
+		log(e.originalEvent.changedTouches[0].pageX)
+		log(e.originalEvent.changedTouches[0].pageY)
+		$('.conteudo').animate({scrollLeft: $('.conteudo').scrollLeft()}, 0);
+		e.preventDefault();
+		posicao = $('.conteudo').scrollLeft();
+		dmenor = 10000
+		salto = ''
+		$('.sessao').each(function(){
+			distancia = posicao - this.offsetLeft
+			distancia = distancia < 0 ? distancia * -1 : distancia;
+			if (distancia < dmenor){
+				dmenor = distancia
+				salto = $(this).attr('rel')
+			}
+		});
+		moveSessao(salto)
+	}
+
+	function moveSessao(s){
+
+		var box = document.getElementById('cont')
+		log(box.scrollWidth)
+		novo = box.scrollWidth * (s / 3)
+		log(novo)
+		box.scrollTo( { left: novo, behavior: 'smooth' })
+
+	}
+
+
+//$(document).ready(start);
+
+function start(){
+
+	$('.conteudo').scroll(logscroll)
+
+
+	function logscroll(){
+
+		log('scroll')
+	}
+}
+
+
+//$(document).on('touchend', '.conteudo', proximo)
+
+/* $(document).on('touchend', '.conteudo', function (e) {
+    console.log(e.originalEvent.changedTouches[0].pageX);
+}) */
+
+
+/* 
+	function startup() {
+  		var el = document.getElementById("cont");
+		  el.addEventListener("touchend", proximo, false);
+	}
+ */
+
+	</script>
+</head>
+<body>
+
+	<section class="titulo">
+		App teste <span id="pos"></span>
+	</section>
+
+	<section class="submenu">
+		<button onClick="moveSessao(0)">Menu 1</butoon>
+		<button onClick="moveSessao(1)">Menu 2</butoon>
+		<button onClick="moveSessao(2)">Menu 3</butoon>
+	</section>
+
+	<section class="conteudo afude" id="cont" style="overflow-y: auto;transform:rotateX(180deg)">
+
+			<div class="sessao inicial afudeitem" rel="inicial" style="transform:rotateX(180deg); ">Inicial</div>
+			
+			<div class="sessao meio afudeitem" rel="meio"  style="transform:rotateX(180deg)">Meio</div>
+
+			<div class="sessao fim afudeitem" rel="fim" style="transform:rotateX(180deg)">Final</div>
+
+
+	</section>
+	
+</body>
+</html>
+<html>

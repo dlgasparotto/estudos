@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+	<script>
+		// -------------------------------------------------------
+		function l(t){console.log(t)}
+		// -------------------------------------------------------
+		function Componente(input){
+			this.tag = input.tag || '';
+			this.props = input.props || {};
+			this.conteudo = input.conteudo || '';
+			this.template = input.template || '';
+			}
+		
+		Componente.prototype.set = function(dados){
+			this.template = this.template.replace('{{val}}', dados.val);
+			return this
+		}
+
+
+		// Gerenciador de componentes
+		function Sparta(){
+
+			this.componentes = {};
+			this.add = function(id, componente){
+				this[id] = componente;
+			}
+			this.get = function(id){
+				return Object.assign({}, this[id]);
+			}
+		}
+
+//*************************************************************************
+		function monta(){
+			let s = new Sparta;
+			s.add('italico', new Componente({tag:'i'}))
+
+
+
+			// Montando uma estrutura baseada nos templates
+
+			titulo = s.get('italico').set({conteudo: 'teste'})
+
+			//strut = sparta.getComponente('div').set({val:titulo}).template
+			l(titulo)
+
+			//document.getElementById('conteudo').innerHTML = strut;
+		}
+		// ---------------------------------------------
+
+
+	</script>
+</head>
+<body onload="monta()">
+Sparta runs...<br><br>
+
+<div id="conteudo"></div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
