@@ -1,0 +1,46 @@
+{
+	"tabela": "beneficiarios",
+	"campos":[
+		{ "campo":"nome","titulo": "Nome cliente", "referencia": true, "tipo":"texto", "tamanho":50 },
+		{ "campo":"descricao","titulo": "Descricao", "tipo":"memo" },
+		{ "campo":"area","tipo":"hidden", "valPadrao":"xxx" },
+		{ "campo":"idade","titulo": "Idade", "tipo":"inteiro" },
+		{ "campo":"valor","titulo": "Valor", "tipo":"double" },
+		{ "campo":"foto","titulo": "Foto", "tipo":"imagem" },
+		{ "campo":"pdf","titulo": "Anexar PDF", "tipo":"anexo" },
+		{ "campo":"fundacao","titulo": "Data fundação", "tipo":"dataSimples" },
+		{ "campo":"nascimento","titulo": "Data nascimento", "tipo":"dataCalendario" },
+		{ "campo":"dtcadastro","titulo": "Data cadastro", "tipo":"dataAuto" },
+		{ "campo":"ativo", "titulo": "Ativo", "tipo":"checkSimples" },
+		{ "campo":"preferencias", "titulo": "Preferencias", "tipo":"checkMulti", "origem":"F/S", "sql":"select...", 
+			"opcoes": ["Casa", {"valor":"1", "label":"Um"} ] },
+	],
+	"ordenacao": ["nome","titulo"]
+	
+}
+
+
+AREAS
+- id
+- titulo
+- idcolprin
+
+CAMPOS
+- id
+- id_area
+- campo (nome)
+- tipo (texto)
+- tamanho (50)
+- titulo (Nome do colaborador)
+- pesquisa (true/false)
+- valPadrao
+- id_origem
+
+ORIGENS
+- id
+- titulo
+- tipo (F/S)
+- sql
+- opcoes [ '1', {"valor": 1, "label": "Um"} ]
+
+
