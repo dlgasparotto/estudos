@@ -1,0 +1,54 @@
+a:link  	{text-decoration:none}
+a:visited	{text-decoration:none}
+a:hover	{text-decoration:underline}
+body {margin:0px; height: 100%;}
+img {border: none}
+form {margin: 0px}
+
+*{color:#000; font-family: Trebuchet MS; font-size:14px; font-weight:normal}
+
+#cabecalho {height: 50px; background-color: #668f03; border-bottom: 4px solid #456502; width: 100%; }
+#corpo {height: calc(100% - 54px); background-color: #ececec}
+#menu {height: 100%; overflow: auto; width: 30%; max-width: 200px; float: left; background-color: #fff; margin-right: 5px}
+#conteudo {height: 100%; overflow: auto; margin-left: 10px; background-color: #fff}
+#menu, #conteudo {border-left: 1px solid #d1d1d1; border-right: 1px solid #d1d1d1;}
+
+#configs{height: 50px; background-color: #efeee0; margin: 5px; border-left: 3px solid #456502; line-height: 50px; font-size: 18px}
+
+.tituloJanela{height: 50px; background-color: #c2e0c6; margin: 5px; border-left: 3px solid #456502}
+.tituloJanela span{ margin: 10px; line-height: 50px; font-size: 18px}
+.tituloMenuVer{height: 50px; background-color: #efeee0; margin: 5px; border-left: 3px solid #456502}
+.tituloMenuVer span{ margin: 10px; line-height: 50px; font-size: 18px}
+
+.grid{margin-left: 5px; width: 99%; background-color: #efeeee;  border-spacing: 1px; border-collapse: separate;}
+.grid th{height: 40px; background-color: #efeeee}
+.grid tr{height: 30px; background-color: #fff}
+.grid tbody tr:hover { background-color: #efeeee; cursor: pointer }
+.grid tfoot td{color: #dd0000}
+
+.bordaRelevo, .grid thead th{border-bottom: 1px solid #ccc; border-right: 1px solid #ccc; border-top: 1px solid #fff; border-left: 1px solid #fff}
+
+ul.vertical { list-style-type: none;    margin: 0;    padding: 0; }
+ul.vertical li { min-height: 50px; border-bottom: 1px solid #d1d1d1; cursor: pointer; line-height: 50px; padding-left: 20px} 
+ul.vertical li:hover:not(.submenu) { background-color: #c2e0c6; border-right: 3px solid #456502 } 
+ul.vertical li:last-child {border-bottom: none}
+
+ul.horizontal { list-style-type: none;   padding: 0; }
+ul.horizontal li { float: left; line-height: 50px; margin-left: 20px;}
+ul.horizontal li a, .dropbtn { display: inline-block;    color: white;    text-align: center;  text-decoration: none; padding: 0px 15px 0px 15px}
+ul.horizontal li a:hover, .dropdown:hover .dropbtn {    background-color: 456502;}
+
+ul.horizontal li.dropdown {    display: inline-block;}
+ul.horizontal .dropdown-content {    display: none;    position: absolute;    background-color: #f9f9f9;    min-width: 250px;    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);}
+ul.horizontal .dropdown-content a {    color: black;    padding-left: 10px;    text-decoration: none;    display: block;    text-align: left; }
+ul.horizontal .dropdown-content a:hover {background-color: #efeeee}
+ul.horizontal .dropdown:hover .dropdown-content {    display: block; }
+
+ ul.horizontal li a {-moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; }
+.borda		{border: 1px solid #999}	
+
+.celRelevo 	{width: 150px; font-weight: bold; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc; border-top: 1px solid #fff; border-left: 1px solid #fff}
+.caixa     	{background-color: #fff; font-family: Arial; font-size: 15; font-style: normal; color: #B50000; border: 1px inset #999999; padding: 5px; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}
+.caixaMeio 	{background-color: #fff; font-family: Arial; font-size: 15; font-style: normal; color: #A30000; border: 1px inset #999999; text-align: center; padding: 5px; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}
+.botao		{color:#000; font-size: 14px; padding: 5px; font-family: Arial; border: 1px outset #f5f5f5; background-color:#c7d8e0; cursor: pointer; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}   
+

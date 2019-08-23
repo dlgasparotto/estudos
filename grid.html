@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>----- Admin Padrao UNI.VS -----</title>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="libs/css2.css?n" type="text/css">
+<script src="libs/jquery-1.8.2.js"></script>
+<style>
+
+@media screen and (max-width: 500px) {
+	.box-grid {
+		display: block;
+		
+	}
+	.icones{
+		height: 50px;
+	} 
+	
+	.menu-areas{
+		display:none;
+		
+	}
+
+ 	td:not(.col-principal), th:not(.col-principal){
+		display: none
+	} 
+
+	.linha-form{
+		display: initial
+	}
+	.linha-form label{ display: block }
+	
+}
+
+.hide{display: none}
+.mostra{display: block}
+</style>
+
+<script>
+	function esconde(){
+		if ( $('body').width() >= 500){
+
+			//$('.box-grid').css('grid-template-columns','50px 1fr')
+			//$('label').css('display','none')
+			if ( $('.box-grid').hasClass('gridCurto')){
+				$('.box-grid').removeClass('gridCurto')
+				$('.lateral label').removeClass('hide')
+			} else {
+				$('.box-grid').addClass('gridCurto')
+				$('.lateral label').addClass('hide')
+			}
+		}
+		if ( $('body').width() < 500){
+			
+			if ($('.menu-areas').hasClass('mostra')){
+				$('.menu-areas').removeClass('mostra')
+			} else {
+				$('.menu-areas').addClass('mostra')
+			}
+
+
+		}
+	}
+
+	function myFunction(x) {
+  console.log(x)
+  	$('.box-grid').removeClass('gridCurto')
+	$('label').removeClass('hide')
+	$('.menu-areas').removeClass('mostra')
+}
+
+var x = window.matchMedia("(max-width: 500px)")
+x.addListener(myFunction) // Attach listener function on state changes
+
+
+</script>
+</head>
+<body class="box-grid">
+
+	<aside class="lateral">
+
+		<section class="nome-app">
+			<i class="fa fa-cubes"></i><label>AdmPCLI</label>
+		</section>
+		
+		<section class="nome-user borda-baixo">
+			<img src="img/user-default.png"><br><label>Olá Douglas</label>
+		</section>
+		
+		<ul class="clear-ul menu-areas">
+			<li><i class="fa fa-user"></i><label>Dashboard/Home</label></li>
+			<li><i class="fa fa-bars"></i><label>Cadastros<i class="fa fa-angle-double-right"></i></label></li>
+				<ul class="clear-ul submenu">
+					<li><i class="fa fa-user"></i><label>Dashboard/Home</label></li>
+					<li><i class="fa fa-bars"></i><label>Cadastros</label></li>
+					<li><i class="fa fa-cogs"></i><label>Pedidos</label></li>
+				</ul>
+			</li>
+			<li><i class="fa fa-cogs"></i><label>Pedidos</label></li>
+			<li><i class="fas fa-bus"></i><label>Solicitações</label></li>
+			<li><i class="fa fa-user"></i><label>Home</label></li>
+			<li><i class="fa fa-bars"></i><label>Cadastros</label></li>
+			<li><i class="fa fa-cogs"></i><label>Pedidos</label></li>
+			<li><i class="fas fa-clock"></i><label>Solicitações</label></li>
+		</ul>
+		
+
+	</aside>
+
+	<nav class="icones">
+		<ul class="clear-ul">
+			<li><i class="fa fa-bars link" onclick="esconde()"></i></li>
+			<li><i class="fa fa-user"></i></li>
+			<li><i class="fa fa-cogs"></i></li>
+			<li><i class="fa fa-cogs"></i></li>
+		</ul>
+	</nav>
+
+	<section class="conteudo">
+		<h1 class="titulo-secao">Motivos de bloqueio</h1>
+		
+		<div class="mg-ver">
+			<input type="text" class="w-30 wmin-200"> <i class="fa fa-search link"></i>
+		</div>
+
+		<table class="grid">
+			<thead>
+				<tr>
+					<th>Codigo bloqueio</th>
+					<th class="col-principal">Descrição bloqueio</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>001</td>
+					<td class="col-principal">Demissão sem justa causa</td>
+					<td>Ativo</td>
+				</tr>
+
+				<tr>
+					<td>001</td>
+					<td class="col-principal">Demissão sem justa causa</td>
+					<td>Ativo</td>
+				</tr>
+
+				<tr>
+					<td>001</td>
+					<td class="col-principal">Demissão sem justa causa</td>
+					<td>Ativo</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+			<form action="" id="formdados">
+
+				<div class="linha-form">
+					<label for="" class="label-form">Nome</label>
+					<div class="campo-form">
+						<input type="text" name="nome" class="w-100">
+					</div>
+				</div>
+
+				
+				<div class="linha-form">
+					<label for="" class="label-form">Descricao</label>
+					<div class="campo-form">
+						<textarea class="w-100" name="descricao" id="descricao"></textarea>
+					</div>
+				</div>
+
+				<div class="linha-form">
+					<label for="" class="label-form">Select</label>
+					<div class="campo-form">
+						<select name="opcao" id="" class="campo-form">
+							<option value="">teste1</option>
+							<option value="">teste2</option>
+							<option value="">teste3</option>
+							<option value="">teste4</option>
+
+						</select>
+					</div>
+				</div>
+
+				<div class="linha-form">
+					<label for="" class="label-form">Ativo</label>
+					<div class="campo-form">
+						<input type="checkbox" class="chbonito" name="dada" id="dada1" value="1">
+						<label for="dada1">Marcar</label>
+						<input type="checkbox" class="chbonito" name="dada" id="dada2" value="2">
+						<label for="dada2">Marcar</label>
+						<input type="checkbox" class="chbonito" name="dada" id="dada3" value="3">
+						<label for="dada3">Marcar</label>
+						 
+					</div>
+				</div>
+
+
+				<div class="linha-form">
+					<label for="" class="label-form">Status</label>
+					<div class="campo-form">
+						<input type="radio" class="chbonito" name="ativo" id="ativoS" value="S">
+						<label for="ativoS">Ativo</label>
+						<input type="radio" class="chbonito" name="ativo" id="ativoN" value="N">
+						<label for="ativoN">Inativo</label>
+					</div>
+				</div>
+
+				<div class="linha-form">
+					<label for="" class="label-form">Texto</label>
+					<div class="campo-form">
+						<div id="textobonito" style="border: 1px solid red; height: 100px" contenteditable="true"></div>
+					</div>
+				</div>
+
+
+			</form>
+
+			<div class="">
+				<button class="btn btn-confirma" onclick="lala()">Confirmar</button>
+				<button class="btn btn-confirma" onclick="italico()">Italico</button>
+			</div>
+
+		
+
+	</section>
+
+	<script>
+
+	function italico(){
+
+		sel = window.getSelection()
+		console.log(sel)
+	}
+
+	function lala(){
+
+		console.log( $('#formdados').serialize() )
+		
+
+		console.log('BONITO: ', $('#textobonito').html())
+	}</script>
+
+<body>
+</html>

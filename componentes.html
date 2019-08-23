@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>----- Admin Padrao UNI.VS -----</title>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<script src="libs/jquery-1.8.2.js"></script>
+<script>
+	function log(t){
+		console.log(t)
+	}
+
+	let templates = {
+		meuh1 = '<h1><font color="red">{{texto}}</font></h1>',
+		meucab = '<div>{{nome-app}}<br>{{infoCab}}</div>'
+	}
+
+	function Componente(){
+
+		this.nome = '';
+		this.template = null;
+		this.dados = {};
+
+	}
+
+	function Componentes(){
+
+		this.controlTem = new Templates;
+		this.componentes = {};
+
+		this.registra = function(nome, template, dados){
+
+			// roda substituições de template
+			// parametros podem ser info ou outro componente registrado
+			// verificar propagação de dados de templates
+
+			this.componentes[nome] = this.controlTem[template];
+
+		}
+
+		this.render = function(componente, alvo){
+			$(alvo).html(this[componente]);
+		}
+		
+	}
+
+	
+	let controlCom = new Componentes;
+
+log(controlCom)
+controlCom.registra('h1-base','meuh1')
+controlCom.registra('h1-base1','meuh1')
+
+
+
+
+
+</script>
+</head>
+<body>
+
+	
+
+	<div id="caixa"></div>
+
+
+<body>
+</html>

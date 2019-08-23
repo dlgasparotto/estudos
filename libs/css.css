@@ -1,0 +1,48 @@
+a:link {text-decoration:none}
+a:visited {text-decoration:none}
+a:hover	{text-decoration:underline}
+
+body, html {margin: 0px; height: 100%; width: 100%;}
+img {border: none}
+form {margin: 0px}
+* {color:#000; font-family: 'Roboto Condensed', Arial; font-size:1rem; box-sizing: border-box}
+
+.mg-top { margin-top: 1rem }
+.w-100 { width: 100% }
+.clear-ul { list-style-type: none; margin: 0; padding: 0 }
+.borda-baixo { border-bottom: 1px solid Teal}
+ul.li-left li { float: left }
+
+.grid { width: 100%}
+.grid thead th{ background-color: #efeee0; height: 3rem; border-radius: 3px; text-align: left }
+.grid tbody tr{ height: 2.5rem; cursor: pointer }
+.grid tbody tr:hover{background-color: #efeeee}
+
+.nome-user { height: 80px; font-size: 1rem; text-align: center}
+.nome-user img {border: 2px solid #fff; width: 2.5rem; height: 2.5rem; border-radius: 50%; padding:4px}
+.nome-user i{ font-size: 2rem; margin-bottom: 10px}
+
+.nome-app { height: var(--altura-menu-icones); font-size: 2rem; text-align: center; font-family: ComicFonte}
+
+.menu-areas i { margin: 1rem }
+.menu-areas .submenu { background: cadetblue; display: none}
+
+#box-menu { height: 100%; width: 30%; max-width: 300px; overflow: auto; float: left; 
+	background-color: var(--cor-bg-menu); border-right: 4px solid #d1d1d1}
+#box-menu * {color: var(--cor-fonte-menu)}
+
+#box-conteudo {height: 100%; overflow: auto}
+.conteudo { }
+
+.icones ul { 
+	height: 100%; width: 100%;
+	display: flex;
+	align-items: center
+}
+
+.icones li { margin-left: 1.5rem}
+.icones i { font-size: 1.3rem; color: #999}
+
+
+.abas { margin-top: var(--altura-menu-icones); height: var(--altura-menu-icones); width: 100%; border-top: 2px solid #008B8B}
+.abas li {width: 15%; border-bottom: 2px solid #d4d4d4; padding: 10px 5px; margin-left: 10px}
