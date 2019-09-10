@@ -1,0 +1,41 @@
+{
+  "name": "uniquest",
+  "version": "1.0.0",
+  "description": "Questionario Uni",
+  "main": "index.js",
+  "scripts": {
+    "babeljs": "babel dada.js --out-file dede.js --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
+
+
+npm i -D babel-cli
+npm i -D babel-preset-env
+
+deve listar no package.json:
+"devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+
+criar .babelrc na raiz com 
+	{
+	"presets": ["env"]
+  }
+
+
+usando no prompt:
+// arquivo especifico
+babel dada.js --out-file dede.js --watch
+
+// pasta para um arquivo
+babel pasta --out-file x.js
+
+// pasta para outra pasta
+babel pasta --out-dir pasta/saida
