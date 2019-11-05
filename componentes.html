@@ -10,48 +10,30 @@
 		console.log(t)
 	}
 
-	let templates = {
-		meuh1 = '<h1><font color="red">{{texto}}</font></h1>',
-		meucab = '<div>{{nome-app}}<br>{{infoCab}}</div>'
-	}
 
-	function Componente(){
 
-		this.nome = '';
-		this.template = null;
-		this.dados = {};
 
-	}
+	function teste(){
 
-	function Componentes(){
-
-		this.controlTem = new Templates;
-		this.componentes = {};
-
-		this.registra = function(nome, template, dados){
-
-			// roda substituições de template
-			// parametros podem ser info ou outro componente registrado
-			// verificar propagação de dados de templates
-
-			this.componentes[nome] = this.controlTem[template];
-
+		campos = {
+			nome: 'Douglas',
+			idade: 40
 		}
 
-		this.render = function(componente, alvo){
-			$(alvo).html(this[componente]);
-		}
-		
-	}
-
+		$.ajax({
+			type: 'DELETE',
+			processData: false,
+			data: JSON.stringify(campos),
+			url: 'uniformes.php',
+			success: trataRet
+		})
 	
-	let controlCom = new Componentes;
+		function trataRet(msg){
 
-log(controlCom)
-controlCom.registra('h1-base','meuh1')
-controlCom.registra('h1-base1','meuh1')
+			log(msg)
+		}
 
-
+	}
 
 
 
@@ -59,7 +41,7 @@ controlCom.registra('h1-base1','meuh1')
 </head>
 <body>
 
-	
+	<button onclick="teste()">Teste</button>	
 
 	<div id="caixa"></div>
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="libs/jquery-1.8.2.js"></script>
+
+	<script>
+	
+		function log(t){console.log(t)}
+
+		function dataTxt(t){
+
+
+return t.getDate().toString().padStart(2,'0') 
+	+ '/' 
+	+ (t.getMonth() + 1).toString().padStart(2,'0') 
+	+ '/' 
+	+ t.getFullYear();
+
+}
+
+		function quinzenastxt(n){
+
+			q = quinzenas(n)	
+			return q.map( p => { return { ini: dataTxt(p.ini), fim: dataTxt(p.fim) } })
+
+
+		}
+
+		function quinzenas(n){
+
+			meses = []
+			quinzenas = []
+			hoje = new Date()
+
+			for (i=0; i<n; i++){
+				novo = new Date()
+				novo.setMonth(hoje.getMonth() - i)
+				meses.push(novo)
+			}
+
+			for (mes of meses){
+				let q11 = new Date(mes.getFullYear(), mes.getMonth(), 1);
+				let q12 = new Date(mes.getFullYear(), mes.getMonth(), 15);
+				let q21 = new Date(mes.getFullYear(), mes.getMonth(), 16);
+				let q22 = new Date(mes.getFullYear(), mes.getMonth() + 1, 0);
+				quinzenas.push({ini: q21, fim: q22})
+				quinzenas.push({ini: q11, fim: q12})
+			}
+
+			let ini = hoje.getDate() > 15 ? 0 : 1;
+			result = quinzenas.slice(ini, n)
+
+			return result;
+		}
+
+		log(quinzenastxt(5))
+	</script>
+
+
+</head>
+<body>
+	Teste de quinzenas
+
+	
+</body>
+</html>

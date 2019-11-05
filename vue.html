@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>----- Admin Padrao UNI.VS -----</title>
+
+<script src="libs/jquery-1.8.2.js"></script>
+<script src="libs/vue232.js"></script>
+
+
+<script>
+
+
+</script>
+</head>
+<body>
+<br><br>
+
+	<div id="app" style="border: 1px solid red">
+
+		{{nome}}<br>
+		{{lista.join(',')}}<br>
+		<button @click = "mudanome">Mudar</button>
+		<button @click = "addnome">Add nome</button>
+	</div>
+<br><br>
+
+	<div id="forminc" style="border: 1px solid green">
+
+			{{nome}}<br>
+			{{lista.join(',')}}<br>
+			<button @click = "mudanome">Mudar nome</button>
+			<button @click = "addnome">Add nome</button>
+		</div>
+
+	<script>
+
+		{
+		let nomepai = "Douglas Gasparotto"
+		let listapai = ['nome1','nome2']
+
+		let ovue = {
+			el: '#app',
+			data: {
+				nome: nomepai,
+				lista: listapai
+				
+			},
+			methods: {
+				mudanome(){
+					this.nome = 'Alterado 1'
+				},
+				addnome(){
+					this.lista.push('nome novo cima')
+				}
+			}
+		}
+
+		let ovue2 = {
+			el: '#forminc',
+			data: {
+				nome: nomepai,
+				lista: listapai
+			},
+			methods: {
+				mudanome(){
+					this.nome = 'Alterado 2'
+				},
+				addnome(){
+					this.lista.push('nome novo baixo')
+				}
+			}
+		}
+
+		new Vue(ovue)
+		new Vue(ovue2)
+
+		}
+
+	</script>
+
+<body>
+</html>
