@@ -1,0 +1,534 @@
+1 An introduction
+  1.1 An Introduction to JavaScript
+    Dominado
+  
+  1.2 Manuals and specifications
+    Dominado
+  
+  1.3 Code editors
+    Dominado
+  
+  1.4 Developer console
+    Dominado
+
+
+2 JavaScript Fundamentals
+
+  2.1 Hello, world!
+    Dominado
+  
+  2.2 Code structure
+    * o automatico de quebra de linha por ";" não funciona quando a nova linha inicia com "["]
+  
+  2.3 The modern mode, "use strict"
+    Dominado
+  
+  2.4 Variables
+    * Da pra declarar assim: let user = 'John', age = 25, message = 'Hello';
+    * Ou assim 
+      let user = 'John',
+        age = 25,
+        message = 'Hello';
+    * So pode ter letra, numero e $ e _ e deve iniciar com digito
+    * Tem dicas bem legais sobre cleancode e nomeação de variaveis
+  
+  2.5 Data types
+
+    * São 8 tipos
+      Number
+        tipos especiais de numero: Infinity, -Infinity and NaN
+        vao ate 253-1 9007199254740991
+      BigInt
+        para maiores que o Number - adiciona-se "n" no fim do numero
+      String
+      Boolean
+      null
+        só tem o valor null
+      undefined
+        é uma variavel declarada, mas nao setada ainda "let x;"
+      Object
+      Symbol
+        usado para criar identificadores unicos para objetos
+    
+    * typeof x é um operador
+      retorna uma string com o nome do tipo (ou se é função)
+      typeof null -> "object" é um erro reconhecido da função
+
+  2.6 Interaction: alert, prompt, confirm
+    Dominado
+  
+  2.7 Type COnversions
+    * String(value) 
+    * Number(value) 
+      NaN, quando a conversao falha
+        undefined	-> NaN
+        null	-> 0
+        true/false	-> 1/0
+        string	-> É feito um trim(valor). Se sobrar "" então 0. Senao o numero converte. Se tiver um nao numerico no meio entao NaN.
+    * Boolean(value)
+      0, null, undefined, NaN, ""	-> false
+      qualquer outro -> true
+
+  2.8 Basic operators, maths
+    * Operador resto %
+    * Exponenciação **
+    * Concatenação
+      alert(2 + 2 + '1' ); // "41" nao "221" - segue a sequencia de solução cfm precedencia
+      Para outros operadores aritmeticos, JS converte operandos para numero
+    * Atribuição tb é um operador, e retorna a variavel/atr atribuida
+  
+  2.9 Comparisons
+    * Sempre retorna um boolean
+    * Diferentes tipos
+      -Operandos transformados em numeros
+      -Strict equality não transforma. Tipos diferentes são false
+      -Exemplos com null e undefined
+        alert( null === undefined ); // false
+        alert( null == undefined ); // true
+        - igualdade x comparação com null e undefined
+            alert( null > 0 );  // (1) false
+            alert( null == 0 ); // (2) false
+            alert( null >= 0 ); // (3) true
+            Comparacao converte null para 0. Igualdade usa o restrict.
+            alert( undefined > 0 ); // false (1)
+            alert( undefined < 0 ); // false (2)
+            alert( undefined == 0 ); // false (3)
+            Comparação converte undefined para NaN . NaN é false par aqualquer comparação
+            Igualdade , undefined é true somente contra null e ele mesmo
+  
+  2.10 Conditional branching: if, '?'
+    * Se o if é de um valor/variavel, conversão auto para boolean
+    *  else if (condicao) {
+    
+  2.11 Logical operators
+    * existem 4: || (OR), && (AND), ! (NOT), ?? (Nullish)
+    * aplicados a valores de qualquer tipo e podem retornar qualquer tipo
+    *operandos nao booleanos são convertidos para booleano
+    * OR "||" finds the first truthy value. se nenhum, retorna o ultimo (fechando o false final)
+    * AND “&&” finds the first falsy value. se nenhum, retorna o ultimo (fechando o true final)
+    * precedence of AND && operator is higher than OR ||
+  
+  2.12 Nullish coalescing operator '??'
+    * a ?? b -> retorna o primeiro nao nulo/undefined
+    * Comparando com ||
+      - || retorna o primeiro true
+      - ?? rtorna o primeiro definido
+      - 0 || 100 = 100 enquanto que 0 ?? 100 = 0
+  
+  2.13 Loops: while and for
+    * “while” loop
+    * “do…while” loop
+    * “for” loop
+      - for (; i < 3; i++) se i ja definino antes
+      - for (; i < 3;) se o step estiver no body
+      - for (;;) loop infinito
+    * break acaba o loop
+    * continue vai para proxima
+    * Labels for break/continue para inner loops
+      labelName: for (...) {
+        break labelName
+        continue labelName
+
+  2.14 The "switch" statement
+    * case usa igualdade estrita ===
+    switch(x) {
+      case 'value1':
+        [break]
+      case b + 1: * case pode ser uma expressao
+      default:
+    }
+
+  2.15 Functions
+    * Function Declaration -> function showMessage() {...
+    * Valores defaoult podem ser ate outras funções
+      function showMessage(from, text = anotherFunction()) {
+
+  2.16 Function expressions
+    * Outra forma de declarar função
+    * Primeiro exemplo com callback
+    * Funções são "valores especiais", tipo "actions"
+
+  2.17 Arrow functions, the basics
+    Dominado
+
+  2.18 Javascript Specials
+    Só um resumo
+
+  
+3 Code quality
+
+  3.1 Debugging in the browser
+    Não uso 
+
+  3.2 Coding style
+    * Sugestões de boas práticas
+    * links de empresas conhecidas
+    * Sobre linters
+
+  3.3 Comments
+    * Dicas sobre quando e onde usar
+
+  3.4 Ninja code
+    * Sobre código ruim
+
+  3.5 Automated testing with Mocha
+    *  Nao uso
+
+  3.6 Polyfills and transpilers
+    Dominado
+
+  Objects: the basics
+
+
+4 Objects: the basis
+
+  4.1 Objects
+    * Criado com
+      let user = new Object(); // "object constructor" sintaxe
+      let user = {}
+    
+      delete user.age // para deletar atributo
+      {"likes birds": true, [variavel]: 5 } // formas de setar atributo complexo
+      user["likes birds"] = true // usando atributo complexo
+      user[variavel] = true; // // usando variavel como atributo
+      "key" in object // teste de atributo existe
+      for ("key" in object) {} // percorre atributos
+
+  4.2 Object references and copying
+    *Object.assign() é o meio de clone
+
+  4.3 Garbage collection
+    no momento nao
+
+  4.4 Object methods, "this"
+    * Declarar metodos
+      // normal
+      user = {
+        sayHi: function() {}
+      };
+      // method shorthand looks better, right?
+      user = {
+        sayHi() { }
+      };
+
+
+
+  4.5 Constructor, operator "new"
+    * nao precisa parenteses
+      user = new User
+    * exemplo
+      function User(name) {
+        this.name = name;
+        this.sayHi = function() {
+          alert( "My name is: " + this.name );
+        };
+      }
+
+  4.6 Optional chaining '?.'
+    * user?.address?.street
+    * Atributos acessados de pais opcionais
+    * Torna opcional o valor ANTES dele
+    * Funciona somente para variaveis declaradas. no minimo a primeira deve estar
+    * userAdmin.admin?.() // testa se uma função esta definida
+    * user1?.[key] // usando a notação de atributo por variavel
+    * delete user?.name;
+
+
+  4.7 Symbol type
+    * são identificadores unicos para atributos
+      let id1 = Symbol("id");
+      let id2 = Symbol("id");
+        id.description == parametro da criacao
+    * nao convertem em string automaticamente -> symbol.toString()
+    * para usa-los, 1 se cria e depois usa:
+      let id = Symbol("id");
+      let user = {
+        [id]: 123 // not "id": 123
+        }
+    * Symbols are skipped by for…in  e Object.keys(objeto) 
+    * Object.assign copia strings e symbols
+    * id = Symbol.for(key) // cria ou busca um symbol global referenciado pelo key
+    * Symbol.keyFor(sym) // pega a key de um determinado Symbol
+
+  4.8 Object to primitive conversion
+    * Necessidades como obj1 + obj2 ou alert(obj)
+      ops matematicas com objetos são consideradas erros, salvo exceções como Dates
+      nunca vão gerar "outro objeto"
+    * conversão acontece com 3 tipos, chamados "hints"
+      "string" -> obj -> str -> operações que se esperam uma String como operando
+      "number" -> obj -> num -> operações que se esperam um Number como operando
+      "default" -> indecisão sobre o que deve ser. raro acontecer
+    * Para converter, JS tenta encontrar 3 métodos:
+      1-obj[Symbol.toPrimitive](hint)
+        se existe, ele é chamado para todos hints. a função deve tratar cada um
+          obj[Symbol.toPrimitive] = function(hint) {
+            // here goes the code to convert this object to a primitive
+            // it must return a primitive value
+            // hint = one of "string", "number", "default"
+          };
+      2-senão, se hint is "string"
+        tenta obj.toString() e obj.valueOf()
+      3-senao, se hint is "number" or "default"
+        tenta obj.valueOf() e obj.toString()
+    *Por default, um objeto tem os metodos toString e valueOf:
+      toString retorna uma string "[object Object]".
+      valueOf retorna o proprio objeto
+    * Exemplo com toString e valueOf  
+      let user = {
+        name: "John",
+        toString() { // hint string
+          return `{name: "${this.name}"}`;
+        },
+        valueOf() { // for hint="number" or "default"
+          return this.money;
+        }
+      };
+
+
+5 Data types
+
+  5.1 Methods of primitives
+    * JS permite trabalhar primitivos como objetos
+    * 7 tipos primitivos: string, number, bigint, boolean, symbol, null and undefined
+    * 5 wrappers: String, Number, Boolean, Symbol and BigInt
+      que fornecem metodos
+    * Não aconselhavel criar objetos com os construtores String/Number/Boolean
+      tipo "new Number(0)" 
+      Mas a conversão é tranquilo: Number('123')
+
+  5.2 Numbers
+    * 2 tipos: Regular numbers e BigInt numbers
+    * Numeros grandes:
+      billion = 1000000000;
+      billion = 1_000_000_000;
+      billion = 1e9;
+      tem outros...
+      let hexa = 0xff
+      let binario = 0b11111111
+      let octal = 0o377
+    * Metodos comuns
+      - num.toString(base) -> converte para string na base desejada. default 10
+        base=36 is the maximum, digits can be 0..9 or A..Z
+      -Math.floor  Math.ceil Math.round Math.trunc
+        Math.round -> não arredonda casas decimais: num.toFixed(2) (porem, retorna string)
+    * Valores especiais: Tests: isFinite and isNaN
+      Infinity (and -Infinity) is a special numeric value that is greater (less) than anything.
+      NaN represents an error.
+    * parseInt and parseFloat
+      parseInt('100px') // 100
+      parseFloat('12.5em') // 12.5
+      parseInt('12.3') // 12, only the integer part is returned
+      parseFloat('12.3.4') // 12.3, the second point stops the reading
+
+    * Math.random() // 0 a 1
+    * Math.max(a, b, c...) / Math.min(a, b, c...)
+
+  5.3 Strings
+    * pegar caracter -> str[0]; (jeito novo) //  str.charAt(0); (jeito antigo)
+    * percorrer -> for(char of "Hello") -> H,e,l,l,o
+    * strings são imutaveis: str[0] = 'h' nao funciona
+    * str.toUpperCase() str.toLowerCase()
+      str.indexOf(strpesquisa, pos_start) pos ou -1 // para no primeiro encontrado
+      str.lastIndexOf(strpesquisa, pos_start) mesma coisa, partindo do final
+      str.includes(substr, pos) 
+      str.startWith(substr) 
+      str.endsWith(substr) 
+      str.slice(start, end)	from start to end (not including end)	allows negatives
+      str.substring(start, end)	between start and end	negative values mean 0
+      str.substr(start, length)	from start get length characters	allows negative start
+
+  5.4 Arrays
+    * let arr = new Array(); let arr = [];
+    * arr.pop() Apaga o ultimo e retorna ele
+      arr.push() Adiciona no fim e retorna o elemento. pode adicionar mais multiplos
+      arr.shift() Apaga o inicio e retorna o elemento
+      arr.unshift() Adiciona no inicio e retorna o tamanho da lista. pode adicionar mais multiplos
+    * for (let fruit of fruits) ok
+      for (let fruit in fruits) nao ok
+        -iterates over all properties
+        -is optimized for generic objects. 10-100 times slower
+    * length property
+       - = maior indice + 1
+       - alterando manualmente pra cima nada demais acontece
+       - alterando manualmente pra baixo o arrai é truncado
+        arr.length = 0 -> limpa o array
+    * possuem um "toString" implementado. Nao tem valueOf nem Symbol.toPrimitive
+    * Array.isArray([]) == true
+
+  5.5 Array methods
+    - arr.splice(start[, deleteCount, elem1, ..., elemN]) 
+      retorna lista do excluidos,  pode ter start negativo
+    - arr.slice([start], [end]) retorna nova lista
+      stert e end podem ser negativos
+      muito usado para copiar lista
+    - arr.concat(arg1, arg2...) retorna nova lista
+      argumentos tipo arr são desmembrados
+    - arr.forEach(function(item, index, array) { });
+    - arr.indexOf(item, from)
+    - arr.lastIndexOf(item, from)
+    - arr.includes(item, from)
+    - arr.find(function(item, index, array) { })
+    - arr.findIndex(function(item, index, array) { })
+    - arr.filter(function(item, index, array) { })
+    - arr.map(function(item, index, array) { })
+    - arr.sort()
+        - arr.sort( (a, b) => a - b )
+    - arr.reverse();
+    - arr.reduce(function(accumulator, item, index, array) { }, [initial])
+      Se não tiver um initial fica o primeiro elemento e o loop começa no segundo
+
+  5.6 Iterables
+    * É um conceito que faz o for...of aplicavel a um objeto
+      ALguns são default: array, string, objetos que representam uma coleção
+    * Se não for default, pode-se criar:
+      let range = {
+        from: 1,
+        to: 5,
+        [Symbol.iterator] = function() {
+          return {
+            current: this.from,
+            last: this.to,
+            next() { // 3. next() is called on each iteration by the for..of loop
+              if (this.current <= this.last) { // 4. it should return the value as an object {done:.., value :...}
+                return { done: false, value: this.current++ };
+              } else {
+                return { done: true };
+              }
+            }
+        }
+      };
+
+      let range = { // usando o proprio objeto
+        from: 1,
+        to: 5,
+        [Symbol.iterator] = function() {
+          this.current: this.from
+          return this
+        }         
+        next() { 
+          if (this.current <= this.last) { // 4. it should return the value as an object {done:.., value :...}
+            return { done: false, value: this.current++ };
+          } else {
+            return { done: true };
+          }
+        }
+      }
+    * Iterators podem ser executaos individualmente
+      let str = "Hello";
+      let iterator = str[Symbol.iterator]();
+      while (true) {
+        let result = iterator.next();
+        if (result.done) break;
+        alert(result.value); // outputs characters one by one
+      }
+    * Iterables são objetos que implementam o metodo Symbol.iterator
+    * Array-likes são objetos que que tem indices e tamanho, so they look like arrays(tipo strings)
+    * Array.from(obj, fnMap) => recebe um iterator ou array-like e transforma em array
+
+  5.7 Map and Set
+    * Map -> usa qualquer coisa como key
+      new Map() – creates the map.
+      map.set(key, value) – stores the value by the key.
+      map.get(key) – returns the value by the key, undefined if key doesn’t exist in map.
+      map.has(key) – returns true if the key exists, false otherwise.
+      map.delete(key) – removes the value by the key.
+      map.clear() – removes everything from the map.
+      map.size – returns the current element count.
+      - Iterables:
+        map.keys() – returns an iterable for keys,
+        map.values() – returns an iterable for values,
+        map.entries() – returns an iterable for entries [key, value]
+      - Da pra criar a partir de arrays e objetos no new Map([array/objeto])
+      - E o contrario tb Object.fromEntries(map)
+    * Set
+      new Set(iterable)
+      set.add(value)
+      set.delete(value)
+      set.has(value)
+      set.clear()
+      set.size
+      - iteration:
+        for (let value of set) alert(value)
+        set.forEach((value, valueAgain, set), fn )
+        set.keys() – returns an iterable for keys,
+        set.values() – returns an iterable for values,
+        set.entries() – returns an iterable for entries [key, value]
+  
+  5.8 WeakMap and WeakSet
+    WeakMap e WeakSet
+      - só tem objetos como chaves
+      - o garbage collection é mais eficiente, eliminando automaticamente chaves com ref null
+        - o Map fica a chave com valor null
+      - weakMap.get(key)
+      - weakMap.set(key, value)
+      - weakMap.delete(key)
+      - weakMap.has(key)
+
+  5.9 Object.keys, values, entries
+    Object.keys(obj) – returns an array of keys.
+    Object.values(obj) – returns an array of values.
+    Object.entries(obj) – returns an array of [key, value] pairs.
+
+
+  5.10 Destructuring assignment
+    - Funciona com qualquer iterator:
+    arrays
+    - let [firstName, surname] = ["John", "Smith"]
+    - let [firstName, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"] // pula elemento
+    - let user = {}; [user.name, user.surname] = "John Smith".split(' ');
+    - for (let [key, value] of Object.entries(user)) {
+    - [guest, admin] = [admin, guest]; // swapping
+    - [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"]
+    - let [name = "Guest", surname = "Anonymous"] = ["Julius"]; // defeult values
+    Objetos
+    - The order does not matter.
+    - let [name = "Guest", surname = "Anonymous"] = ["Julius"];
+    - let {width: w, height: h, title} = options // mudando nomes : fonte->destino
+    - let {width = 100, height = 200, title} = options // default values
+    - let {title, ...rest} = options;
+    Aplicando em funções
+    function showMenu({title = "Untitled", width = 200, height = 100, items = []} = {})
+      passa um objeto e na expressão já faz o destructuring
+
+
+  5.11 Date and time
+    - new Date()
+    - new Date(milliseconds) // por timestamp
+    - new Date(datestring) // 'AAAA-MM-DD'
+    - new Date(year, month, date = 1, hours, minutes, seconds, ms) // os 2 primeiros obrigatorios
+
+    - date.getTime() // retorna o timestamp
+    - getFullYear(), getMonth(), getDate(), getHours(), getMinutes(), getSeconds(), getMilliseconds(), getDay()
+
+    - sets 
+      setFullYear(year, [month], [date])
+      setMonth(month, [date])
+      setDate(date)
+      setHours(hour, [min], [sec], [ms])
+      setMinutes(min, [sec], [ms])
+      setSeconds(sec, [ms])
+      setMilliseconds(ms)
+      setTime(milliseconds)
+
+    - somar individualmente
+      date.setDate(date.getDate() + 2);
+
+    - ao converter para number, vira timestamp. permite operações matematicas
+    - uteis
+      Date.now() // timestamp
+      Date.parse(YYYY-MM-DDTHH:mm:ss.sssZ) // retorna timestamp
+
+
+
+  5.12 JSON methods, toJSON
+
+    let json = JSON.stringify(value[, replacer, space])
+      replacer = [atrs para serializar], ou fn map
+      let room = {
+        number: 23,
+        toJSON() {
+          return this.number;
+        }
+      };
+      
+    let value = JSON.parse(str, [reviver])
